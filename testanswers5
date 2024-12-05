@@ -1,0 +1,51 @@
+1. 
+   driver.findElement(By.cssselector(".//input[@name='my-disabled']")).isDisabled();
+
+
+2. 
+   WebElement readonlyInput = driver.findElement(By.xpath("//input[@value='Readonly input']"));
+   Assert.assertTrue(readonlyInput.getAttribute("readonly") != null
+
+   WebElement readonlyInputByValue = driver.findElement(By.xpath("//input[@value='Readonly input' and @readonly]"));
+   Assert.assertTrue(readonlyInputByValue.isDisplayed()
+
+
+3. 
+  WebElement dropdown = driver.findElement(By.xpath("//select[@name='color']"));
+  List<WebElement> options = dropdown.findElements(By.tagName("option"));
+  Assert.assertEquals(options.size(), 8, "The dropdown does have 8 options.");
+
+
+  WebElement dropdownByName = driver.findElement(By.xpath("//select[@name='color' and count(option) = 8]"));
+  Assert.assertTrue(dropdownByName.isDisplayed(), "Dropdown does have 8 options.");
+
+
+4. 
+WebElement nameInput = driver.findElement(By.xpath("//input[@name='name']"));
+WebElement submitButton = driver.findElement(By.xpath("//button[@type='submit']"));
+
+nameInput.clear(); // Clear Name field
+Assert.assertFalse(submitButton.isdisabled(), "Submit button is disabled when no Name is entered.");
+
+
+
+5. 
+ WebElement passwordInput = driver.findElement(By.xpath("//input[@name='password']"));
+ nameInput.sendKeys("Test Name");
+ passwordInput.sendKeys("Test Password");
+ Assert.assertTrue(submitButton.isEnabled());
+
+
+
+6. 
+   driver.findElement(By.cssSelector("button[type='submit']")).click();
+   String textreceived = #message.getText();
+   Assert.assertTrue(textreceived, Received);
+
+
+
+ 7. if (driver.getCurrentUrl().contains("my-name=divyanshu&my-password=1887878")) {
+    System.out.println("The URL contains the number.");
+} else {
+    System.out.println("The URL does not contain the number.");
+}
